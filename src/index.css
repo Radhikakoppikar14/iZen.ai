@@ -1,0 +1,51 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+:root{
+  /* BRAND COLORS sampled from the live izen.ai hero (screenshots).
+     ink = headings and dark panels, steel = body text, paper = page background tint,
+     signal = buttons/links (original Book a Demo blue), teal = step accents (mid of the gradient) */
+  --ink:#24344C; --steel:#1E283A; --paper:#F7F9FD; --signal:#0082FE; --teal:#917FD5;
+  --grad-from:#5B9BED; --grad-to:#CA64BD; /* original headline gradient: blue (left) to pink (right) */
+}
+body{@apply bg-paper text-steel font-sans antialiased}
+h1,h2,h3{color:var(--ink)}
+.h-display{font-weight:600;letter-spacing:-.01em}
+.grad-text{background:linear-gradient(90deg,var(--grad-from),var(--grad-to));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:600}
+html{scroll-behavior:smooth}
+a:focus-visible,button:focus-visible{outline:3px solid var(--signal);outline-offset:2px}
+.btn{@apply inline-block px-6 py-3 font-normal rounded-full transition-colors}
+.btn-p{@apply bg-signal text-white hover:opacity-90}
+.btn-s{@apply border border-white/40 text-white hover:bg-white/10}
+.btn-d{@apply border border-ink text-ink hover:bg-ink hover:text-white}
+.wrap{@apply max-w-6xl mx-auto px-5}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.rise{animation:rise .7s ease-out backwards}
+@media (prefers-reduced-motion:reduce){.rise{animation:none}html{scroll-behavior:auto}}
+.btn,.navlink{transition:transform .2s ease,box-shadow .2s ease,background-color .2s,color .2s,border-color .2s,background-size .3s}
+.btn-p:hover{opacity:1;filter:brightness(1.08)}
+.navlink{background:linear-gradient(var(--signal),var(--signal)) left bottom/0 2px no-repeat;padding-bottom:3px}
+.navlink:hover{background-size:100% 2px}
+
+@media (prefers-reduced-motion:no-preference){
+ @keyframes fade{from{opacity:0}to{opacity:1}}
+ @keyframes drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+ @keyframes float{from{transform:translateY(0)}to{transform:translateY(-12px)}}
+ .page-in{animation:fade .45s ease-out}
+ .menu-in{animation:drop .25s ease-out}
+ .float{animation:float 5s ease-in-out infinite alternate}
+ .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+ .reveal.in{opacity:1;transform:none}
+ .reveal-group>*{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .3s ease}
+ .reveal-group.in>*{opacity:1;transform:none}
+ .reveal-group.in>*:nth-child(2){transition-delay:.1s}
+ .reveal-group.in>*:nth-child(3){transition-delay:.2s}
+ .reveal-group.in>*:nth-child(4){transition-delay:.3s}
+ .reveal-group.in>*:nth-child(5){transition-delay:.4s}
+ .reveal-group.in>*:nth-child(6){transition-delay:.5s}
+ .reveal-group.in>.bg-white:hover,.reveal-group.in>.bg-paper:hover,.bg-paper.rise:hover{transform:translateY(-6px);box-shadow:0 18px 36px -18px rgba(36,52,76,.4);transition-delay:0s}
+ .bg-paper.rise{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .3s ease}
+ .btn:hover{transform:translateY(-2px)}
+ .btn-p:hover{box-shadow:0 10px 22px -10px rgba(0,131,255,.75)}
+ .btn:active{transform:translateY(0) scale(.97)}
+}
+.icon-ring{display:inline-grid;place-items:center;width:60px;height:60px;border-radius:9999px;padding:4px;background:linear-gradient(135deg,var(--grad-from),var(--grad-to));margin-bottom:.9rem}
+.icon-ring>span{display:grid;place-items:center;width:100%;height:100%;border-radius:9999px;background:radial-gradient(circle at 30% 25%,#fff,#e0e0e2)}
