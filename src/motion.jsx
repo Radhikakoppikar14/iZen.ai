@@ -35,3 +35,10 @@ export function CountUp({text}){
  },[]);
  return <p ref={ref} className="text-4xl font-extrabold h-display tabular-nums">{m?m[1]+v+m[3]:text}</p>;
 }
+
+// 0..1 of how far the page is scrolled (drives the thin gradient progress line under the header).
+export function useProgress(){
+ const [p,setP]=useState(0);
+ useEffect(()=>{const f=()=>{const h=document.documentElement.scrollHeight-window.innerHeight;setP(h>0?Math.min(window.scrollY/h,1):0)};f();window.addEventListener('scroll',f,{passive:true});window.addEventListener('resize',f);return()=>{window.removeEventListener('scroll',f);window.removeEventListener('resize',f)}},[]);
+ return p;
+}
