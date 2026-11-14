@@ -22,8 +22,8 @@ const Item=({t,c,after,children})=>{const nav=useNavigate();const {pathname}=use
  if(t.ext)return <a href={t.ext} className={c}>{children}</a>;
  return <a href="#" className={c} onClick={e=>{e.preventDefault();after&&after();const run=()=>document.getElementById(t.id)?.scrollIntoView();if(pathname===t.page)run();else{nav(t.page);setTimeout(run,250)}}}>{children}</a>};
 export default function App(){
- const [open,setOpen]=useState(false);const [sub,setSub]=useState(null);const {pathname}=useLocation();useReveal(pathname);const scrolled=useScrolled();const prog=useProgress();const close=()=>{setOpen(false);setSub(null)};
- useEffect(()=>{setOpen(false);setSub(null);window.scrollTo(0,0);const m=META[pathname]||META['/'];document.title=m[0];document.querySelector('meta[name="description"]')?.setAttribute('content',m[1])},[pathname]);
+ const [open,setOpen]=useState(false);const [sub,setSub]=useState(null);const {pathname,key}=useLocation();useReveal(key);const scrolled=useScrolled();const prog=useProgress();const close=()=>{setOpen(false);setSub(null)};
+ useEffect(()=>{setOpen(false);setSub(null);window.scrollTo(0,0);const m=META[pathname]||META['/'];document.title=m[0];document.querySelector('meta[name="description"]')?.setAttribute('content',m[1])},[pathname,key]);
  return(<>
  <header className={"bg-white text-ink sticky top-0 z-20 transition-shadow duration-300 "+(scrolled?"shadow-md":"shadow-sm")}><div aria-hidden="true" className="absolute left-0 top-0 h-[3px] bg-gradient-to-r from-[#5B9BED] to-[#CA64BD]" style={{width:(prog*100)+"%"}}/><div className={"w-full px-5 lg:px-8 flex items-center justify-between transition-all duration-300 "+(scrolled?"h-16":"h-20")}>
   <Link to="/" aria-label="iZen ai home"><img src={L+'/wp-content/uploads/2024/06/iZEN_LOGO-New-Options-2-2-68x68.png'} alt="iZen ai" className={"transition-all duration-300 "+(scrolled?"h-11 w-11":"h-14 w-14")}/></Link>
@@ -37,7 +37,7 @@ export default function App(){
   {open&&<div className="menu-in lg:hidden px-5 pb-5 flex flex-col max-h-[80vh] overflow-y-auto">{MENU.map(([n,t,kids])=><div key={n}><button type="button" className="w-full flex items-center justify-between py-3 text-left" aria-expanded={sub===n} onClick={()=>setSub(sub===n?null:n)}>{n}<Chev c={sub===n?'rotate-180':''}/></button>{sub===n&&<ul className="pl-4 pb-2">{kids.map(([k,kt])=><li key={k}><Item t={kt} after={close} c="block py-2 text-ink/80">{k}</Item></li>)}</ul>}</div>)}
    <div className="pt-3"><a href={BRIEF} className="btn btn-p w-full text-center">Request a Briefing</a></div></div>}
  </header>
- <main key={pathname} className="page-in"><Routes><Route path="/" element={<Home/>}/><Route path="/opszen" element={<OpsZen/>}/><Route path="/briefing" element={<Briefing/>}/><Route path="/page/:slug" element={<Soon/>}/></Routes></main>
+ <main key={key} className="page-in"><Routes><Route path="/" element={<Home/>}/><Route path="/opszen" element={<OpsZen/>}/><Route path="/briefing" element={<Briefing/>}/><Route path="/page/:slug" element={<Soon/>}/></Routes></main>
  <footer className="bg-ink text-white/80 mt-20"><div className="wrap py-12 grid gap-8 md:grid-cols-3 text-sm">
   <div><p className="font-bold text-white text-base mb-2">iZen ai, Inc.</p><p>Builds trusted AI that prepares the workforce and guides the work.</p></div>
   <div><p className="font-semibold text-white mb-2">Explore</p><ul className="space-y-1">{[['Investors','#/page/investors'],['Capability Statement','#/page/capability-statement'],['GSA Schedule (47QTCA24D0059)','#/page/government'],['Privacy Policy','#/page/privacy-policy']].map(([n,t])=><li key={n}><a className="hover:text-white" href={t}>{n}</a></li>)}</ul></div>
