@@ -57,7 +57,7 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--signal);outline-off
 .blob-b{width:320px;height:320px;background:var(--grad-to);bottom:-150px;left:-70px}
 .nav-top{position:relative}
 .nav-top::after{content:'';position:absolute;left:0;right:0;bottom:12px;height:2px;background:linear-gradient(90deg,var(--grad-from),var(--grad-to));transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
-.group:hover>.nav-top::after,.group:focus-within>.nav-top::after{transform:scaleX(1)}
+.group:hover>.nav-top::after{transform:scaleX(1)}
 .logo-card{transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s ease,border-color .3s ease}
 .logo-card:hover{transform:translateY(-4px);border-color:var(--signal);box-shadow:0 14px 28px -16px rgba(36,52,76,.45)}
 .reveal:not(.text-center)>h2{position:relative}

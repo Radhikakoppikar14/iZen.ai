@@ -30,15 +30,13 @@ export default function Home(){return(<>
 <section className="wrap pt-20"><h2 className="h-display text-3xl md:text-4xl font-extrabold">Why iZen</h2>
  <div className="grid md:grid-cols-3 gap-5 mt-8">{[['content','Source-grounded and traceable','Guidance is rooted in your approved sources, so every step can be audited.'],['nowifi','Works where the network doesn’t','Runs online, offline, or on lightweight edge hardware through iZen-LEAP.'],['learn','Prepare and perform on one platform','The same AI that trains workers before the job guides them during it.']].map(([i,t,d])=><div key={t} className="bg-white p-6"><span className="icon-ring"><span><Img src={IMG[i]} className="h-7 w-7"/></span></span><p className="font-bold text-lg">{t}</p><p className="mt-2 text-steel">{d}</p></div>)}</div></section>
 
-<section id="how-to-buy" className="wrap pt-20 scroll-mt-20"><h2 className="h-display text-3xl md:text-4xl font-extrabold">Four ways to buy</h2>
+<section id="how-to-buy" className="wrap pt-20 scroll-mt-20"><h2 className="h-display text-3xl md:text-4xl font-extrabold">Four ways to contract</h2>
  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-8">{[['doe','U.S. Department of Energy','SBIR Phase III','Sole-source awards for qualifying work derived from our DOE SBIR projects. ZenLight and iZen-LEAP.'],['gsa','GSA MAS','GSA MAS','Active contract 47QTCA24D0059.'],['tradewinds','DoW CDAO Tradewinds','Tradewinds','DoW CDAO Solutions Marketplace: Awardable.'],['devx','Army DevX Autonomy Marketplace','Army DevX','Autonomy Marketplace: Award-Ready.']].map(([i,a,t,d])=><div key={t} className="bg-white p-5"><p className="text-xs text-steel mb-1">{a}</p><p className="font-bold">{t}</p><p className="mt-2 text-sm text-steel">{d}</p></div>)}</div></section>
 
 <section className="wrap pt-20"><div className="bg-white p-8 md:p-10 grid md:grid-cols-2 gap-8 items-center">
- <div><h2 className="h-display text-3xl font-extrabold">Built on $3M in non-dilutive R&amp;D.</h2><p className="mt-3 text-steel">Our core technology was built with funding from the U.S. Department of Energy and the Office of Naval Research. ZenLight won the TechConnect 2025 Innovation Award.</p>
-  <ul className="mt-5 flex flex-wrap items-center gap-6">{[['doe','U.S. Department of Energy'],['onr','Office of Naval Research'],['techconnect','TechConnect 2025 Innovation Award']].map(([k,a])=><li key={k}><Img src={IMG[k]} alt={a} className="h-14 w-auto max-w-[8rem] object-contain"/></li>)}</ul></div>
  <div><h3 className="font-bold text-xl">Building the cleared, AI-ready workforce</h3><p className="mt-2 text-steel">Boots2Bytes®, Spark2Skill™ and iZen-Academy run on ZenLight® and show it works with real learners.</p>
-  <ul className="mt-4 flex flex-wrap items-center gap-6">{[['skillbridge','DoD SkillBridge partner'],['defense2024','2024 Defense Innovation Challenge awardee']].map(([k,a])=><li key={k}><Img src={IMG[k]} alt={a} className="h-14 w-auto max-w-[8rem] object-contain"/></li>)}</ul>
-  <a className="btn btn-d mt-5" href="#/page/workforce-programs">See Workforce Programs</a></div></div></section>
+  <a className="btn btn-d mt-5" href="#/page/workforce-programs">See Workforce Programs</a></div>
+ <ul className="flex flex-wrap items-center gap-6 md:justify-end">{[['skillbridge','DoD SkillBridge partner'],['defense2024','2024 Defense Innovation Challenge awardee']].map(([k,a])=><li key={k}><Img src={IMG[k]} alt={a} className="h-24 w-auto max-w-[12rem] object-contain"/></li>)}</ul></div></section>
 
 <section className="wrap pt-20 text-center"><h2 className="h-display text-3xl md:text-4xl font-extrabold">Let’s talk about your workforce and operations.</h2><a href={BRIEF} className="btn btn-p mt-6 pulse">Request a Briefing</a></section>
 </>)}

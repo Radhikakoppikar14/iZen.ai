@@ -8,8 +8,8 @@ export default function OpsZen(){return(<>
  <p className="mt-5 text-lg text-steel max-w-xl rise">Guides maintainers and inspectors at the point of work, hands-free, online or offline, grounded in approved sources.</p>
  <p className="mt-4 text-sm text-steel rise">Prepare is available now. Perform is available for pilots.</p>
  <div className="mt-7 flex flex-wrap gap-3 rise"><a href={BRIEF} className="btn btn-p">Request a Briefing</a><a href="#pilot" onClick={go('pilot')} className="btn btn-d">How a pilot works</a></div></div>
- <div className="float"><Img src={IMG.banner} className="w-full h-auto rise"/></div></div>
- <div className="border-t border-ink/10"><Logos items={[['tradewinds','DoW CDAO Tradewinds Solutions Marketplace, Awardable'],['devx','Army Applications Laboratory DevX Autonomy Marketplace, Award-Ready'],['gsa','GSA MAS approved company']]}/></div></section>
+ <div className="float flex justify-center"><Img src={IMG.tradewindsBadge} alt="Chief Digital and Artificial Intelligence Office, Tradewinds Solutions Marketplace, Awardable" className="w-full max-w-[22rem] h-auto rise"/></div></div>
+ <div className="border-t border-ink/10"><Logos items={[['devx','Army Applications Laboratory DevX Autonomy Marketplace, Award-Ready'],['gsa','GSA MAS approved company']]}/></div></section>
 
 <section className="wrap pt-16"><H>The problem</H><div className="grid md:grid-cols-3 gap-6">{[['~75%','of maintainers lacked necessary experience at one Air Force base (GAO-26-109154, June 2026)'],['<30%','of time maintainers can spend fixing equipment (McKinsey, 2021)'],['~$125K','per hour, a typical industrial outage (ABB, 2023)']].map(([n,t])=><div key={n} className="border-l-4 border-signal pl-4"><CountUp text={n}/><p className="text-steel mt-1">{t}</p></div>)}</div></section>
 

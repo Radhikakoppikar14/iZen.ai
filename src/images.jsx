@@ -9,6 +9,7 @@ export const IMG={
  learn:L+'/elementor/thumbs/icons8-learn-r3g6s5bfqcob67pp9on1g2g3234s73gmbgrlaie9o4.png',
  content:L+'/elementor/thumbs/icons8-content-r3g6s3frcolqizsfkntsb2x5vbe1rp95n7gmbyh20k.png',
  devx:L+'/2026/06/iZen-DevX-Autonomy-Award-ready-2026-Opt-2.png',
+ tradewindsBadge:'/images/tradewinds-awardable.png',
  tradewinds:L+'/2025/09/14_Awardable_logo_transparent_bg_2_black-white.png',
  gsa:L+'/2024/03/GSA-MAS.png',
  doe:L+'/2024/03/US_DEPARTMENT_OF_ENERGY_Logo.png',
@@ -19,4 +20,4 @@ export const IMG={
 };
 // Hides itself if an image ever fails to load, so no broken-image icons show.
 export const Img=({src,alt='',className})=><img src={src} alt={alt} loading="lazy" className={className} onError={e=>{e.currentTarget.style.display='none'}}/>;
-export const Logos=({items,className='py-5'})=><ul className={'wrap grid gap-3 sm:grid-cols-2 lg:grid-cols-3 '+className}>{items.map(([k,alt])=><li key={k} className="logo-card rise flex items-center gap-3 bg-white border border-ink/10 rounded-md px-3 py-2"><span className="flex items-center justify-center h-14 w-24 shrink-0"><Img src={IMG[k]} alt={alt} className="max-h-full max-w-full object-contain mix-blend-multiply"/></span><span className="text-xs text-steel leading-snug">{alt}</span></li>)}</ul>;
+export const Logos=({items,className='py-5'})=><ul className={'wrap grid gap-3 sm:grid-cols-2 lg:grid-cols-3 '+className}>{items.map(([k,alt])=><li key={k} className="logo-card rise flex items-center gap-3 bg-white border border-ink/10 rounded-md px-3 py-2"><span className="flex items-center justify-center h-16 w-28 shrink-0"><Img src={IMG[k]} alt={alt} className="max-h-full max-w-full object-contain mix-blend-multiply"/></span><span className="text-xs text-steel leading-snug">{alt}</span></li>)}</ul>;
